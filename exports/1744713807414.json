@@ -1,0 +1,15 @@
+{
+  "timestamp": 1744713807414,
+  "operation": {
+    "id": "backend:specifications:openapi"
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/backend/openapi.yaml",
+      "type": "text",
+      "size": 3,
+      "dependencies": false
+    }
+  ]
+}

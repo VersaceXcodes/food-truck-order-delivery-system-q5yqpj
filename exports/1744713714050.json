@@ -1,0 +1,15 @@
+{
+  "timestamp": 1744713714050,
+  "operation": {
+    "id": "backend:specifications:asyncapi"
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/backend/asyncapi.yaml",
+      "type": "text",
+      "size": 8078,
+      "dependencies": false
+    }
+  ]
+}

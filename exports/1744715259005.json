@@ -1,0 +1,37 @@
+{
+  "timestamp": 1744715259005,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_CustomerTruckProfileMenu",
+      "version": "1744714918424"
+    }
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/components/views/UV_CustomerTruckProfileMenu.tsx",
+      "type": "text",
+      "size": 250,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_CustomerTruckProfileMenu/empty.tsx",
+      "type": "text",
+      "size": 439,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_CustomerTruckProfileMenu/1744714918424.tsx",
+      "type": "text",
+      "size": 16837,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_CustomerTruckProfileMenu/meta.json",
+      "type": "text",
+      "size": 53,
+      "dependencies": false
+    }
+  ]
+}

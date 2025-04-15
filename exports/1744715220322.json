@@ -1,0 +1,15 @@
+{
+  "timestamp": 1744715220322,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/package.json",
+      "type": "text",
+      "size": 2988,
+      "dependencies": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "timestamp": 1744715163328,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_StaticVendorTerms",
+      "version": "latest"
+    }
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/components/views/UV_StaticVendorTerms.tsx",
+      "type": "text",
+      "size": 243,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_StaticVendorTerms/empty.tsx",
+      "type": "text",
+      "size": 418,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_StaticVendorTerms/latest.tsx",
+      "type": "text",
+      "size": 12164,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_StaticVendorTerms/meta.json",
+      "type": "text",
+      "size": 83,
+      "dependencies": false
+    }
+  ]
+}

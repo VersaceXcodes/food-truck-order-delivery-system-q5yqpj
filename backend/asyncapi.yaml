@@ -1,0 +1,227 @@
+asyncapi: 2.0.0
+info:
+  title: StreetEats Hub Realtime API
+  version: 1.0.0
+  description: Realtime API for notifications and status updates in the StreetEats
+    Hub application (MVP).
+  contact:
+    name: Cofounder
+    url: http://localhost:1337
+    email: cofounder@streeteats.example
+servers:
+  development:
+    url: ws://localhost:1337/ws
+    protocol: websocket
+    description: Development WebSocket server
+channels:
+  /operators/{operator_user_uid}/notifications:
+    description: Channel for sending notifications specifically to a food truck operator.
+    parameters:
+      operator_user_uid:
+        $ref: "#/components/parameters/operator_user_uid"
+    subscribe:
+      summary: Operator receives notifications relevant to their truck.
+      operationId: receive_operator_notification
+      messages:
+        - $ref: "#/components/messages/new_order_for_operator"
+        - $ref: "#/components/messages/customer_cancellation_request"
+  /customers/{customer_user_uid}/notifications:
+    description: Channel for sending notifications specifically to a customer.
+    parameters:
+      customer_user_uid:
+        $ref: "#/components/parameters/customer_user_uid"
+    subscribe:
+      summary: Customer receives notifications related to their orders.
+      operationId: receive_customer_notification
+      messages:
+        - $ref: "#/components/messages/order_status_update_for_customer"
+components:
+  parameters:
+    operator_user_uid:
+      description: The unique identifier for the operator user (maps to users.uid).
+      schema:
+        type: string
+        format: uuid
+        description: Unique identifier for the operator user.
+    customer_user_uid:
+      description: The unique identifier for the customer user (maps to users.uid).
+      schema:
+        type: string
+        format: uuid
+        description: Unique identifier for the customer user.
+  messages:
+    new_order_for_operator:
+      name: new_order_for_operator
+      title: New Order Notification
+      summary: Notifies an operator about a newly placed order for their truck.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/new_order_notification_payload"
+    order_status_update_for_customer:
+      name: order_status_update_for_customer
+      title: Order Status Update
+      summary: Notifies a customer about a change in the status or estimated time of
+        their order.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/order_status_update_payload"
+    customer_cancellation_request:
+      name: customer_cancellation_request
+      title: Customer Cancellation Request
+      summary: Notifies an operator that a customer has requested to cancel an
+        accepted order.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/cancellation_request_payload"
+  schemas:
+    new_order_notification_payload:
+      type: object
+      description: Payload containing summary details of a new order for the operator
+        dashboard.
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum:
+            - new_order_for_operator
+          description: The type of event.
+        data:
+          type: object
+          required:
+            - order_uid
+            - order_number
+            - customer_name
+            - status
+            - fulfillment_type
+            - total_amount
+            - order_time
+          properties:
+            order_uid:
+              type: string
+              format: uuid
+              description: The unique identifier of the new order.
+            order_number:
+              type: string
+              description: The user-friendly order number.
+            customer_name:
+              type: string
+              description: The name of the customer who placed the order (e.g., First Name,
+                Last Initial).
+            status:
+              type: string
+              enum:
+                - pending_confirmation
+              description: The initial status of the order when placed.
+            fulfillment_type:
+              type: string
+              enum:
+                - pickup
+                - delivery
+              description: Indicates whether the order is for pickup or delivery.
+            total_amount:
+              type: number
+              format: float
+              description: The total amount charged for the order.
+            order_time:
+              type: number
+              format: int64
+              description: Timestamp (Unix epoch milliseconds) when the order was placed.
+            delivery_address_snippet:
+              type: string
+              nullable: true
+              description: A short snippet of the delivery address (e.g., street name), only
+                present if fulfillment_type is 'delivery'. Null otherwise.
+    order_status_update_payload:
+      type: object
+      description: Payload containing details about an order status change or time
+        estimate update for the customer.
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum:
+            - order_status_update_for_customer
+          description: The type of event.
+        data:
+          type: object
+          required:
+            - order_uid
+            - order_number
+            - new_status
+          properties:
+            order_uid:
+              type: string
+              format: uuid
+              description: The unique identifier of the order being updated.
+            order_number:
+              type: string
+              description: The user-friendly order number.
+            new_status:
+              type: string
+              enum:
+                - accepted
+                - rejected
+                - preparing
+                - ready_for_pickup
+                - out_for_delivery
+                - completed
+                - delivered
+                - cancelled
+                - pending_confirmation
+                - cancellation_requested
+              description: The new status of the order.
+            rejection_reason:
+              type: string
+              nullable: true
+              description: The reason provided by the operator if the order status is
+                'rejected'. Null otherwise.
+            cancellation_reason:
+              type: string
+              nullable: true
+              description: The reason provided if the order status is 'cancelled' (by operator
+                or approved customer request). Null otherwise.
+            updated_estimated_ready_time:
+              type: number
+              format: int64
+              nullable: true
+              description: The updated estimated time the order will be ready for pickup (Unix
+                epoch milliseconds), if adjusted by the operator. Null otherwise
+                or if not applicable.
+            updated_estimated_delivery_time:
+              type: number
+              format: int64
+              nullable: true
+              description: The updated estimated time the order will be delivered (Unix epoch
+                milliseconds), if adjusted by the operator. Null otherwise or if
+                not applicable.
+    cancellation_request_payload:
+      type: object
+      description: Payload notifying the operator about a customer's request to cancel
+        an order.
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum:
+            - customer_cancellation_request
+          description: The type of event.
+        data:
+          type: object
+          required:
+            - order_uid
+            - order_number
+          properties:
+            order_uid:
+              type: string
+              format: uuid
+              description: The unique identifier of the order for which cancellation is
+                requested.
+            order_number:
+              type: string
+              description: The user-friendly order number.

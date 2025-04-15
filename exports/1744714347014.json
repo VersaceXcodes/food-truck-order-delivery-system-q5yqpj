@@ -1,0 +1,21 @@
+{
+  "timestamp": 1744714347014,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/backend/package.json",
+      "type": "text",
+      "size": 882,
+      "dependencies": true
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/backend/.env",
+      "type": "text",
+      "size": 494,
+      "dependencies": false
+    }
+  ]
+}

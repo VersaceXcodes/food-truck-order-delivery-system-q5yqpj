@@ -1,0 +1,37 @@
+{
+  "timestamp": 1744715708738,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "GV_UnauthTopNav",
+      "version": "latest"
+    }
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/components/views/GV_UnauthTopNav.tsx",
+      "type": "text",
+      "size": 238,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/GV_UnauthTopNav/empty.tsx",
+      "type": "text",
+      "size": 403,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/GV_UnauthTopNav/latest.tsx",
+      "type": "text",
+      "size": 2815,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/GV_UnauthTopNav/meta.json",
+      "type": "text",
+      "size": 53,
+      "dependencies": false
+    }
+  ]
+}

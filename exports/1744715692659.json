@@ -1,0 +1,37 @@
+{
+  "timestamp": 1744715692659,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_OperatorEmailVerificationRequired",
+      "version": "1744714918693"
+    }
+  },
+  "projectId": "food-truck-order-delivery-system",
+  "files": [
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/components/views/UV_OperatorEmailVerificationRequired.tsx",
+      "type": "text",
+      "size": 259,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_OperatorEmailVerificationRequired/empty.tsx",
+      "type": "text",
+      "size": 466,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_OperatorEmailVerificationRequired/1744714918693.tsx",
+      "type": "text",
+      "size": 7668,
+      "dependencies": false
+    },
+    {
+      "path": "../../apps/food-truck-order-delivery-system/vitereact/src/_cofounder/generated/views/UV_OperatorEmailVerificationRequired/meta.json",
+      "type": "text",
+      "size": 53,
+      "dependencies": false
+    }
+  ]
+}
